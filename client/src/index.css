@@ -1,6 +1,4 @@
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,12 +12,17 @@ code {
     monospace;
 }
 
-.ta-header {
+.ta-header, .ta-footer {
+  color: brown;
   margin: 0;
   display: flex;
   flex-direction: row;
   width: 100%;
   background-color:aliceblue;
   justify-content: space-between;
+}
+
+.ta-body {
+  height: 600px;
 }
 
