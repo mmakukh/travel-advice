@@ -1,0 +1,58 @@
+[
+    {
+       "id":0,
+       "picture":"https://res.cloudinary.com/mmakukh/image/upload/v1655690270/travel-advice/rent_a_chick_logo_cktvmm.png",
+       "title":"School Barn",
+       "subtitme":"Lancaster Pennsylvania",
+       "description":"SPRING AND FALL SCHOOL TOURS",
+       "content":"We seek to educate kids about where their food comes from, how it gets to their plate and give them a little glance of life on the farm through educational activities during our spring and fall school tours.  We strive to create a place of fun and educational farm experiences for people of all ages.  Learning is easy when you're in a fun place!  Country Barn School Tours align with Pennsylvania State Curriculum Standards in Science, Family and Consumer Sciences and Food Science and Nutrition for grades pre-k to 3rd grade.  Join us for a wagon tour around our farm, a healthy snack and interaction with some of the barnyard animals!",
+       "length":[
+          1,
+          3,
+          5,
+          10
+       ],
+       "address":{
+          "street":"211 S. Donerville Road",
+          "postalCode":"17603",
+          "city":"Lancaster",
+          "countryCode":"USA",
+          "country":"USA",
+          "text":"Office: (717) 872-1554"
+       },
+       "meta":[
+          "Family",
+          "Life",
+          "Farm",
+          "Easy"
+       ]
+    },
+    {
+        "id":1,
+        "picture":"https://res.cloudinary.com/mmakukh/image/upload/v1655690786/travel-advice/sfa-coaster_ortvvv.jpg",
+        "title":"Six Flags",
+        "subtitme":"Great America",
+        "description":"New! Annual passes!",
+        "content":"Opening Spring 2022 – DC UNIVERSE™, an exciting, newly-themed section of Six Flags Great America where guests can immerse themselves inside a DC comic book-inspired world with three reimagined attractions.",
+        "length":[
+           1,
+           3
+        ],
+        "address":{
+           "street":"John Krajnak, Park President 542 N Route 21",
+           "postalCode":"60031",
+           "city":"Gurnee",
+           "countryCode":"USA",
+           "country":"USA",
+           "text":"Six Flags Great America"
+        },
+        "meta":[
+           "Family",
+           "Farm",
+           "Easy",
+           "Moderate",
+           "Roller-coasters",
+           "Fun"
+        ]
+     }
+ ]

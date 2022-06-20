@@ -3,10 +3,10 @@ const recordRoutes = express.Router();
 const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
-recordRoutes.route("/travel").get(function (req, res) {
+recordRoutes.route("/travels").get(function (req, res) {
   let db_connect = dbo.getDb("travel-advice");
   db_connect
-    .collection("items")
+    .collection("travel-item")
     .find({})
     .toArray(function (err, result) {
       if (err) throw err;
