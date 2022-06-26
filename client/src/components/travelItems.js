@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Record = (props) => (
   <tr>
@@ -7,6 +8,11 @@ const Record = (props) => (
     </td>
     <td>{props.record.title}</td>
     <td>{props.record.description}</td>
+    <td>
+      <Link className="btn btn-link" to={`/item/${props.record._id}`}>
+        Learn More
+      </Link>
+    </td>
   </tr>
 );
 
