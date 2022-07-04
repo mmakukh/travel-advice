@@ -6,15 +6,31 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import TravelItems from "./components/travelItems";
 import TravelItemDescription from "./components/travelItemDescription";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const App = () => {
+  const [user, setLoginUser] = useState({});
+
   return (
     <div>
-      <Routes>
-        <Route exact path="/" element={<TravelItems />} />
-        <Route path="/item/:id" element={<TravelItemDescription />} />
-        <Route path="/Register" element={<Register />} />
-      </Routes>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Routes>
+          <Route exact path="/" element={<TravelItems />} />
+          <Route path="/item/:id" element={<TravelItemDescription />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/login"
+            element={<Login setLoginUser={setLoginUser} />}
+          />
+        </Routes>
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 };

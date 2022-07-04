@@ -7,16 +7,21 @@ const Login = ({ setLoginUser }) => {
     name: "",
     password: "",
   });
+
+  const navigate = () => {
+    history.navigate("/register");
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({
-      ...user, //spread operator
+      ...user,
       [name]: value,
     });
   };
 
   const login = () => {
-    axios.post("http://localhost:6969/Login", user).then((res) => {
+    axios.post("http://localhost:3000/login", user).then((res) => {
       alert(res.data.message);
       setLoginUser(res.data.user);
       history.navigate("/");
@@ -104,7 +109,7 @@ const Login = ({ setLoginUser }) => {
             href="#"
             target="_blank"
             class="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white"
-            onClick={history.push("/Register")}
+            onClick={navigate}
           >
             <span class="ml-2">You don&#x27;t have an account?</span>
           </a>
