@@ -20,7 +20,7 @@ export default function RecordList() {
   const [records, setRecords] = useState([]);
   useEffect(() => {
     async function getRecords() {
-      const response = await fetch(`http://localhost:5050/travels/`);
+      const response = await fetch(`http://localhost:5050/travels`);
 
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
