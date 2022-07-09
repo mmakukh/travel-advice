@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-const db = {};
-db.mongoose = mongoose;
-db.user = require("./user.model");
-db.role = require("./role.model");
-db.ROLES = ["user", "admin", "moderator"];
-db.travelItem = require("./travelItem.model");
-module.exports = db;
+const modelStore = {};
+modelStore.mongoose = mongoose;
+modelStore.user = require("./user.model");
+modelStore.role = require("./role.model");
+modelStore.ROLES = ["user"];
+modelStore.travelItem = require("./travelItem.model");
+module.exports = modelStore;

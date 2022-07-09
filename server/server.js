@@ -3,9 +3,15 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5000;
+var corsOptions = {
+  origin: "http://localhost:8081",
+};
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("./routes/travels"));
+app.use(require("./routes/auth"));
+app.use(require("./routes/user"));
 const dbo = require("./db/conn");
 
 app.listen(port, () => {
