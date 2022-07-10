@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("./routes/travels"));
-app.use(require("./routes/auth"));
-app.use(require("./routes/user"));
+
+require("./routes/auth")(app);
+require("./routes/user")(app);
+
 const dbo = require("./db/conn");
 
 app.listen(port, () => {

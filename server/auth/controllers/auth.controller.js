@@ -5,11 +5,14 @@ const Role = db.role;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
+  const body = req.body;
+  console.log({ body });
   const user = new User({
     username: req.body.username,
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8),
   });
+  console.log({ user });
   user.save((err, user) => {
     if (err) {
       res.status(500).send({ message: err });
@@ -44,6 +47,8 @@ exports.signin = (req, res) => {
       if (!user) {
         return res.status(404).send({ message: "User Not found." });
       }
+      pas = req.body.password;
+      console.log({ pas });
       var passwordIsValid = bcrypt.compareSync(
         req.body.password,
         user.password
