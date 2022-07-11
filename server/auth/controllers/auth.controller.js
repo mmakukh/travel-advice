@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
           res.status(500).send({ message: err });
           return;
         }
-        res.send({ message: "User was registered successfully!" });
+        res.status(200).send({ message: "User was registered successfully!" });
       });
     });
   });
@@ -66,6 +66,8 @@ exports.signin = (req, res) => {
       for (let i = 0; i < user.roles.length; i++) {
         authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
       }
+      console.log("success");
+      console.log({ user });
       res.status(200).send({
         id: user._id,
         username: user.username,

@@ -4,15 +4,17 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ setLoginUser }) => {
   const history = useNavigate();
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     password: "",
   });
 
   const navigate = () => {
-    history.navigate("/register");
+    console.log("navigate");
+    window.location.href = "/register";
   };
 
   const handleChange = (e) => {
+    console.log({ user });
     const { name, value } = e.target;
     setUser({
       ...user,
@@ -21,10 +23,9 @@ const Login = ({ setLoginUser }) => {
   };
 
   const login = () => {
-    axios.post("http://localhost:3000/login", user).then((res) => {
-      alert(res.data.message);
+    axios.post("http://localhost:5050/api/auth/signin", user).then((res) => {
       setLoginUser(res.data.user);
-      history.navigate("/");
+      window.location.href = "/";
     });
   };
   return (
@@ -52,10 +53,10 @@ const Login = ({ setLoginUser }) => {
                   type="text"
                   id="sign-in-email"
                   class=" rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="email"
+                  name="username"
                   value={user.email}
                   onChange={handleChange}
-                  placeholder="Your email"
+                  placeholder="Username"
                 />
               </div>
             </div>
@@ -81,16 +82,6 @@ const Login = ({ setLoginUser }) => {
                   onChange={handleChange}
                   placeholder="Your password"
                 />
-              </div>
-            </div>
-            <div class="flex items-center mb-6 -mt-4">
-              <div class="flex ml-auto">
-                <a
-                  href="#"
-                  class="inline-flex text-xs font-thin text-gray-500 sm:text-sm dark:text-gray-100 hover:text-gray-700 dark:hover:text-white"
-                >
-                  Forgot Your Password?
-                </a>
               </div>
             </div>
             <div class="flex w-full">

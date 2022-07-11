@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Register = () => {
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
+    roles: ["user"],
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -12,14 +14,19 @@ const Register = () => {
       ...user,
       [name]: value,
     });
+    console.log({ user });
   };
 
   const register = () => {
-    const { name, email, password } = user;
-    if (name && email && password) {
-      axios
-        .post("http://localhost:3000/register", user)
-        .then((res) => console.log(res));
+    const { username, email, password } = user;
+    console.log({ user });
+    if (username && email && password) {
+      axios.post("http://localhost:5050/api/auth/signup", user).then(
+        (res) => {
+          window.location.href = "/";
+        },
+        (err) => alert(err)
+      );
     } else {
       alert("invalid input");
     }
@@ -32,13 +39,9 @@ const Register = () => {
         </div>
         <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
           Already have an account ?
-          <a
-            href="#"
-            target="_blank"
-            class="text-sm text-blue-500 underline hover:text-blue-700"
-          >
-            Sign in
-          </a>
+          <Link className="btn btn-link" to={`/login`}>
+            Sign In
+          </Link>
         </span>
         <div class="p-6 mt-8">
           <form action="#">
@@ -48,10 +51,10 @@ const Register = () => {
                   type="text"
                   id="create-account-pseudo"
                   class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                  name="name"
-                  value={user.name}
+                  name="username"
+                  value={user.username}
                   onChange={handleChange}
-                  placeholder="FullName"
+                  placeholder="username"
                 />
               </div>
             </div>
@@ -64,7 +67,7 @@ const Register = () => {
                   name="email"
                   value={user.email}
                   onChange={handleChange}
-                  placeholder="Email"
+                  placeholder="email"
                 />
               </div>
             </div>
