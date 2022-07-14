@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
           res.status(500).send({ message: err });
           return;
         }
-        res.status(200).send({ message: "User was registered successfully!" });
+        res.status(200).send({ message: "All done!" });
       });
     });
   });
@@ -45,7 +45,7 @@ exports.signin = (req, res) => {
         return;
       }
       if (!user) {
-        return res.status(404).send({ message: "User Not found." });
+        return res.status(404).send({ message: "Not found." });
       }
       pas = req.body.password;
       console.log({ pas });
@@ -60,7 +60,7 @@ exports.signin = (req, res) => {
         });
       }
       var token = jwt.sign({ id: user.id }, config.secret, {
-        expiresIn: 86400, // 24 hours
+        expiresIn: 1200,
       });
       var authorities = [];
       for (let i = 0; i < user.roles.length; i++) {

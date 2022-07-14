@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Header from "../Header";
 
 const Record = (props) => (
   <tr>
@@ -18,6 +20,9 @@ const Record = (props) => (
 
 export default function RecordList() {
   const [records, setRecords] = useState([]);
+  const location = useLocation();
+  const s = location.state;
+  console.log({ s });
   useEffect(() => {
     async function getRecords() {
       const response = await fetch(`http://localhost:5050/travels`);
@@ -43,8 +48,24 @@ export default function RecordList() {
     });
   }
 
+  function header() {
+    if (location.state) {
+      return <Header userName={location.state.user.username} />;
+    }
+    return <Header />;
+  }
+
+  function configWidget() {
+    if (location.state.user) {
+      return <div width={120}>Configure your Search / TODO</div>;
+    }
+    return <div />;
+  }
+
   return (
     <div>
+      <div width={120}>{configWidget}</div>
+      <div>{header()}</div>
       <h3>Record List</h3>
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>

@@ -1,6 +1,6 @@
-exports.allAccess = (req, res) => {
-  res.status(200).send("Public Content.");
+exports.genericFeed = (req, res) => {
+  res.status(200).send("Generic feed.");
 };
-exports.userBoard = (req, res) => {
-  res.status(200).send("User Content.");
+exports.userFeed = (req, res) => {
+  res.status(200).send("Custom feed.");
 };

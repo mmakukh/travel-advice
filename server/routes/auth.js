@@ -9,7 +9,7 @@ module.exports = function (app) {
     next();
   });
   app.post(
-    "/api/auth/signup",
+    "/signup",
     [verifySignUp.anyDuplicates, verifySignUp.roleExists],
     (req, res) => {
       const body = req.body;
@@ -18,5 +18,5 @@ module.exports = function (app) {
       controller.signup(req, res);
     }
   );
-  app.post("/api/auth/signin", controller.signin);
+  app.post("/signin", controller.signin);
 };

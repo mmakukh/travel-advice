@@ -2,10 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { Link } from "react-router-dom";
 import "./index.css";
+
 export default class TAHeader extends React.Component {
   render() {
-    return (
-      <div className="ta-header">
+    function signup(name) {
+      console.log({ name });
+      if (name) {
+        return (
+          <div ta-header-child>
+            {" "}
+            {name} |{" "}
+            <Link className="btn btn-link" to={`/`}>
+              Logout
+            </Link>{" "}
+          </div>
+        );
+      }
+      return (
         <div ta-header-child>
           <Link className="btn btn-link" to={`/register`}>
             Register
@@ -15,6 +28,12 @@ export default class TAHeader extends React.Component {
             Login
           </Link>
         </div>
+      );
+    }
+
+    return (
+      <div className="ta-header">
+        {signup(this.props.userName)}
         <div ta-header-child>
           <Link className="btn btn-link" to={`/`}>
             Travel Advice

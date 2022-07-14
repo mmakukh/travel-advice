@@ -21,7 +21,7 @@ const Register = () => {
     const { username, email, password } = user;
     console.log({ user });
     if (username && email && password) {
-      axios.post("http://localhost:5050/api/auth/signup", user).then(
+      axios.post("http://localhost:5050/signup", user).then(
         (res) => {
           window.location.href = "/";
         },
@@ -33,11 +33,11 @@ const Register = () => {
   };
   return (
     <>
-      <div class="flex flex-col max-w-md px-4 py-8 bg-white rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
-        <div class="self-center mb-2 text-xl font-light text-gray-800 sm:text-2xl dark:text-white">
+      <div class="flex flex-col max-w-md px-2 py-6 bg-white rounded-lg shadow dark:bg-gray-850 sm:px-3 md:px-6 lg:px-11">
+        <div class="self-center mb-2 text-xl font-light text-gray-850 sm:text-2xl dark:text-white">
           Create a new account
         </div>
-        <span class="justify-center text-sm text-center text-gray-500 flex-items-center dark:text-gray-400">
+        <span class="justify-center text-sm text-center text-gray-550 flex-items-center dark:text-gray-400">
           Already have an account ?
           <Link className="btn btn-link" to={`/login`}>
             Sign In

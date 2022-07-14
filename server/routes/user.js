@@ -8,6 +8,6 @@ module.exports = function (app) {
     );
     next();
   });
-  app.get("/all", controller.allAccess);
-  app.get("/user", [authJwt.verifyToken], controller.userBoard);
+  app.get("/all", controller.genericFeed);
+  app.get("/user", [authJwt.verifyToken], controller.userFeed);
 };
